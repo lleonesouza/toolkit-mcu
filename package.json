@@ -1,0 +1,28 @@
+{
+  "name": "toolkit",
+  "version": "1.0.0",
+  "description": "nodejs tool kit for nodemcu",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "flash": "python3 -m esptool -p $(cat .usbport) -b 115200 write_flash --flash_mode dio 0x00000 firmwares/29-06-2023/release-float.bin",
+    "erase": "python3 -m esptool -p=$(cat .usbport) -b 115200 erase_flash",
+    "devices": "nodemcu-tool devices",
+    "terminal": "nodemcu-tool --port $(cat .usbport) terminal",
+    "start": "nodemcu-tool run init.lua --port=$(cat .usbport)",
+    "mkfs": "nodemcu-tool mkfs --port=$(cat .usbport)",
+    "info": "nodemcu-tool fsinfo --port=$(cat .usbport)",
+    "download": "nodemcu-tool download --port $(cat .usbport) *.lua",
+    "upload": "cd project && nodemcu-tool upload --port=$(cat ../.usbport) ./*.lua ./**/*.lua ./**/**/*.lua --keeppath && yarn terminal",
+    "bundle": "luabundler bundle -p './examples/dht11/index.lua' -o ./bundle.lua",
+    "lint": "luafmt ./src/*.lua"
+  },
+  "dependencies": {
+    "bundle": "^2.1.0",
+    "coap-cli": "^0.11.1",
+    "lua-fmt": "^2.6.0",
+    "luabundle": "^1.6.0",
+    "luabundler": "^1.2.2",
+    "nodemcu-tool": "^3.2.1"
+  }
+}

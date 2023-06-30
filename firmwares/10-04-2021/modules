@@ -1,0 +1,4 @@
+
+dev branch.
+modules:
+adc coap dht enduser_setup file gpio i2c mdns net node rtcfifo rtcmem rtctime sjson tmr uart wifi.
