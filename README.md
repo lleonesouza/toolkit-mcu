@@ -3,9 +3,9 @@
 stay in hands with
 
 - nodemcu
-- data micro-usb cable
+- data micro-USB cable
 
-! you will need install these programs before working: !
+⚠️ you will need install these programs before working: ⚠️
 
 - python
 - nodejs
